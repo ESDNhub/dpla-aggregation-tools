@@ -11,7 +11,7 @@
         <xsl:variable name="oaibase" select="//oai:request"/>
         <xsl:variable name="recordbase"><xsl:text>?verb=GetRecord&amp;metadataPrefix=MODS&amp;identifier=</xsl:text></xsl:variable>
         
-        <xsl:for-each select="//oai:record">
+        <xsl:for-each select="//oai:record[./oai:header[not(@status='deleted')]]">
             
             <xsl:variable name="title" select="normalize-space(.//mods:mods/mods:titleInfo[1]/mods:title)"/>
             <xsl:variable name="rights" select="normalize-space(.//mods:accessCondition[1])"/>

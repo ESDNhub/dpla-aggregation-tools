@@ -11,7 +11,7 @@
         <xsl:variable name="oaibase" select="//oai:request"/>
         <xsl:variable name="recordbase"><xsl:text>?verb=GetRecord&amp;metadataPrefix=oai_dc&amp;identifier=</xsl:text></xsl:variable>
         
-        <xsl:for-each select="//oai:record">
+        <xsl:for-each select="//oai:record[./oai:header[not(@status='deleted')]]">
             <xsl:variable name="title" select="normalize-space(.//dc:title[1])"/>
             <xsl:variable name="rights" select="normalize-space(.//dc:rights[1])"/>
             
